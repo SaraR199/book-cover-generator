@@ -1,0 +1,568 @@
+{
+  "project_slug": "blood-moon-rising",
+  "created_date": "2025-09-08T18:58:16.019696",
+  "last_modified": "2025-09-08T19:02:33.618851",
+  "current_step": null,
+  "completed_steps": [
+    "market_research",
+    "cover_strategy",
+    "prompt_generation",
+    "image_generation",
+    "output_organization"
+  ],
+  "step_status": {
+    "input_collection": {
+      "status": "completed",
+      "timestamp": "2025-09-08T18:58:16.019696"
+    },
+    "market_research": {
+      "status": "completed",
+      "timestamp": "2025-09-08T18:59:52.295708"
+    },
+    "cover_strategy": {
+      "status": "completed",
+      "timestamp": "2025-09-08T19:00:01.545829"
+    },
+    "prompt_generation": {
+      "status": "completed",
+      "timestamp": "2025-09-08T19:00:07.632783"
+    },
+    "image_generation": {
+      "status": "completed",
+      "timestamp": "2025-09-08T19:02:10.560975"
+    },
+    "output_organization": {
+      "status": "completed",
+      "timestamp": "2025-09-08T19:02:33.618851"
+    }
+  },
+  "step_data": {
+    "market_research": {
+      "genre_analysis": {
+        "genre": "paranormal romance",
+        "genre_category": "romance",
+        "bestsellers_analyzed": [
+          {
+            "title": "Example Romance 1",
+            "cover_style": "couple embrace",
+            "colors": [
+              "pink",
+              "purple"
+            ]
+          },
+          {
+            "title": "Example Romance 2",
+            "cover_style": "single figure",
+            "colors": [
+              "red",
+              "gold"
+            ]
+          }
+        ],
+        "common_elements": {
+          "color_palettes": [
+            {
+              "name": "Passionate",
+              "colors": [
+                "#FF6B6B",
+                "#FF8E8E",
+                "#FFB6C1"
+              ],
+              "usage": "high"
+            },
+            {
+              "name": "Elegant",
+              "colors": [
+                "#800080",
+                "#9370DB",
+                "#DDA0DD"
+              ],
+              "usage": "medium"
+            },
+            {
+              "name": "Warm Gold",
+              "colors": [
+                "#FFD700",
+                "#FFA500",
+                "#FFCCCB"
+              ],
+              "usage": "medium"
+            }
+          ],
+          "typography_styles": [
+            {
+              "style": "Script/Cursive",
+              "usage": "very high",
+              "examples": [
+                "brush script",
+                "calligraphy"
+              ]
+            },
+            {
+              "style": "Serif Elegant",
+              "usage": "high",
+              "examples": [
+                "Playfair",
+                "Crimson"
+              ]
+            },
+            {
+              "style": "Sans Modern",
+              "usage": "medium",
+              "examples": [
+                "Montserrat",
+                "Lato"
+              ]
+            }
+          ],
+          "imagery_types": [
+            {
+              "type": "Couple silhouettes",
+              "usage": "very high"
+            },
+            {
+              "type": "Single attractive figure",
+              "usage": "high"
+            },
+            {
+              "type": "Romantic objects (roses, rings)",
+              "usage": "medium"
+            },
+            {
+              "type": "Scenic backgrounds",
+              "usage": "medium"
+            }
+          ],
+          "layout_patterns": [
+            {
+              "pattern": "Title prominent top, author bottom",
+              "usage": "very high"
+            },
+            {
+              "pattern": "Overlaid text on image",
+              "usage": "high"
+            },
+            {
+              "pattern": "Decorative borders/frames",
+              "usage": "medium"
+            }
+          ]
+        },
+        "trends": {
+          "current_popular": [
+            "Illustrated/cartoon style couples",
+            "Minimalist with bold typography",
+            "Diverse character representation",
+            "Foil accents and textures"
+          ],
+          "oversaturated": [
+            "Shirtless male torsos",
+            "Clinch covers (traditional embrace poses)",
+            "Purple/pink gradient backgrounds"
+          ],
+          "emerging": [
+            "Abstract geometric designs",
+            "Photography with illustration overlay",
+            "Vintage/retro aesthetic revival"
+          ]
+        }
+      },
+      "design_opportunities": {
+        "differentiation_areas": [
+          "Unique color combinations not commonly used in genre",
+          "Fresh take on typical genre imagery",
+          "Modern typography that stands out",
+          "Cultural or regional specificity"
+        ],
+        "market_gaps": [
+          "Underserved demographics in romance",
+          "Fresh artistic styles not yet adopted",
+          "Cross-genre hybrid approaches"
+        ],
+        "recommended_approaches": [
+          "Focus on emotional connection over genre stereotypes",
+          "Use contemporary design trends adapted to genre",
+          "Consider accessibility and readability",
+          "Plan for thumbnail visibility in online stores"
+        ]
+      },
+      "competitive_analysis": {
+        "similar_books": [
+          "Analysis would include specific competing titles",
+          "Cover effectiveness assessment",
+          "Market performance correlation"
+        ],
+        "cover_effectiveness": [
+          "Thumbnail visibility score",
+          "Genre appropriateness rating",
+          "Uniqueness factor"
+        ],
+        "lessons_learned": [
+          "What works in current market",
+          "Common mistakes to avoid",
+          "Opportunities for improvement"
+        ]
+      },
+      "metadata": {
+        "research_date": "2025-09-08T18:59:52.272061",
+        "sources_used": [
+          "Amazon Bestsellers",
+          "Goodreads",
+          "BookBub",
+          "Genre Analysis"
+        ],
+        "confidence_score": 85
+      }
+    },
+    "cover_strategy": {
+      "concepts": [
+        {
+          "id": 1,
+          "concept_name": "Market Aligned",
+          "design_approach": "Follows proven successful patterns in the genre",
+          "strategy": "safe_effective",
+          "color_palette": {
+            "name": "Passionate",
+            "colors": [
+              "#FF6B6B",
+              "#FF8E8E",
+              "#FFB6C1"
+            ],
+            "usage": "high"
+          },
+          "typography": {
+            "style": "Script/Cursive",
+            "usage": "very high",
+            "examples": [
+              "brush script",
+              "calligraphy"
+            ]
+          },
+          "imagery_focus": "Couple silhouettes",
+          "rationale": "Uses established visual language that readers expect and respond to in this genre",
+          "risk_level": "low",
+          "differentiation_level": "medium"
+        },
+        {
+          "id": 2,
+          "concept_name": "Trend Forward",
+          "design_approach": "Incorporates Illustrated/cartoon style couples with Abstract geometric designs",
+          "strategy": "trendy_contemporary",
+          "primary_trend": "Illustrated/cartoon style couples",
+          "emerging_element": "Abstract geometric designs",
+          "color_approach": "contemporary color trends",
+          "typography_approach": "modern, on-trend fonts",
+          "rationale": "Capitalizes on what's currently working while incorporating fresh elements",
+          "risk_level": "medium",
+          "differentiation_level": "high"
+        },
+        {
+          "id": 3,
+          "concept_name": "Differentiated",
+          "design_approach": "Deliberately stands apart from common genre clichés",
+          "strategy": "unique_standout",
+          "avoids": [
+            "Shirtless male torsos",
+            "Clinch covers (traditional embrace poses)",
+            "Purple/pink gradient backgrounds"
+          ],
+          "unique_elements": [
+            "Unexpected color combinations",
+            "Non-typical genre imagery",
+            "Innovative layout approach"
+          ],
+          "differentiation_strategy": "Avoids: Shirtless male torsos, Clinch covers (traditional embrace poses)",
+          "rationale": "Designed to stand out on crowded digital shelves by avoiding overused elements",
+          "risk_level": "medium-high",
+          "differentiation_level": "very high"
+        },
+        {
+          "id": 4,
+          "concept_name": "Artistic Premium",
+          "design_approach": "High-end aesthetic with artistic flair",
+          "strategy": "premium_artistic",
+          "aesthetic_focus": "sophisticated visual appeal",
+          "artistic_elements": [
+            "Custom illustration or photography",
+            "Sophisticated color relationships",
+            "Premium typography choices",
+            "Balanced composition"
+          ],
+          "target_perception": "Literary quality, professional, premium product",
+          "rationale": "Appeals to readers who value aesthetic quality and positions book as premium offering",
+          "risk_level": "low-medium",
+          "differentiation_level": "high"
+        }
+      ],
+      "rationale": {
+        "approach": "Multi-strategy approach covering safe, trendy, unique, and premium aesthetics",
+        "target_coverage": "Ensures options for different market positions and author preferences"
+      },
+      "metadata": {
+        "created_date": "2025-09-08T19:00:01.518172",
+        "total_concepts": 4,
+        "genre": "paranormal romance"
+      }
+    },
+    "prompt_generation": {
+      "cover_concepts": [
+        {
+          "id": 1,
+          "concept_name": "Market Aligned",
+          "design_approach": "Follows proven successful patterns in the genre",
+          "ideogram_prompt": "Professional paranormal romance book cover, professional design, featuring paranormal_romance, book title \"Blood Moon Rising\" prominently displayed, author name \"Sara Riouch\", commercial book cover design, bestseller aesthetic, high quality typography, genre-appropriate imagery, market-ready design, professional composition, readable at thumbnail size, contemporary design",
+          "style_parameters": {
+            "aspect_ratio": "2:3",
+            "style": "photographic",
+            "mood": "professional, engaging",
+            "color_scheme": "#FF6B6B, #FF8E8E, #FFB6C1"
+          },
+          "text_overlay": {
+            "title_text": "Blood Moon Rising",
+            "author_text": "Sara Riouch",
+            "title_placement": "prominent, readable",
+            "author_placement": "secondary, bottom or top",
+            "font_guidance": "Script/Cursive"
+          },
+          "rationale": "Uses established visual language that readers expect and respond to in this genre"
+        },
+        {
+          "id": 2,
+          "concept_name": "Trend Forward",
+          "design_approach": "Incorporates Illustrated/cartoon style couples with Abstract geometric designs",
+          "ideogram_prompt": "Trendy paranormal romance book cover incorporating Illustrated/cartoon style couples and Abstract geometric designs, modern aesthetic, contemporary color palette, current design trends, book title \"Blood Moon Rising\" with modern typography, author \"Sara Riouch\", fresh take on paranormal romance genre, innovative composition, eye-catching design, social media ready, contemporary illustration style, on-trend visual elements",
+          "style_parameters": {
+            "aspect_ratio": "2:3",
+            "style": "modern",
+            "mood": "professional, engaging",
+            "color_scheme": "professional color palette"
+          },
+          "text_overlay": {
+            "title_text": "Blood Moon Rising",
+            "author_text": "Sara Riouch",
+            "title_placement": "prominent, readable",
+            "author_placement": "secondary, bottom or top",
+            "font_guidance": "clean, readable typography"
+          },
+          "rationale": "Capitalizes on what's currently working while incorporating fresh elements"
+        },
+        {
+          "id": 3,
+          "concept_name": "Differentiated",
+          "design_approach": "Deliberately stands apart from common genre clichés",
+          "ideogram_prompt": "Unique paranormal romance book cover design, avoiding Shirtless male torsos, Clinch covers (traditional embrace poses), distinctive visual approach, unexpected color combinations, non-typical paranormal romance imagery, innovative layout, stands out from competition, book title \"Blood Moon Rising\" with creative typography, author \"Sara Riouch\", memorable design, shelf-standout appeal, creative composition, breaks genre conventions while remaining appropriate",
+          "style_parameters": {
+            "aspect_ratio": "2:3",
+            "style": "artistic",
+            "mood": "professional, engaging",
+            "color_scheme": "professional color palette"
+          },
+          "text_overlay": {
+            "title_text": "Blood Moon Rising",
+            "author_text": "Sara Riouch",
+            "title_placement": "prominent, readable",
+            "author_placement": "secondary, bottom or top",
+            "font_guidance": "clean, readable typography"
+          },
+          "rationale": "Designed to stand out on crowded digital shelves by avoiding overused elements"
+        },
+        {
+          "id": 4,
+          "concept_name": "Artistic Premium",
+          "design_approach": "High-end aesthetic with artistic flair",
+          "ideogram_prompt": "Premium artistic paranormal romance book cover, sophisticated aesthetic, high-end design, literary quality, custom artistic elements, refined color palette, elegant typography, professional photography or illustration, book title \"Blood Moon Rising\" with sophisticated font, author \"Sara Riouch\", gallery-quality composition, premium positioning, artistic flair, sophisticated visual appeal, luxury book design",
+          "style_parameters": {
+            "aspect_ratio": "2:3",
+            "style": "illustrated",
+            "mood": "professional, engaging",
+            "color_scheme": "professional color palette"
+          },
+          "text_overlay": {
+            "title_text": "Blood Moon Rising",
+            "author_text": "Sara Riouch",
+            "title_placement": "prominent, readable",
+            "author_placement": "secondary, bottom or top",
+            "font_guidance": "clean, readable typography"
+          },
+          "rationale": "Appeals to readers who value aesthetic quality and positions book as premium offering"
+        }
+      ],
+      "prompt_variations": {
+        "negative_prompts": [
+          "low quality",
+          "blurry",
+          "pixelated",
+          "amateur",
+          "unprofessional",
+          "generic stock photo",
+          "cliche",
+          "overused",
+          "poor composition",
+          "bad typography",
+          "illegible text",
+          "cluttered"
+        ],
+        "quality_enhancers": [
+          "professional book cover design",
+          "high quality",
+          "detailed",
+          "crisp",
+          "professional typography",
+          "well composed",
+          "commercial quality",
+          "bestseller aesthetic"
+        ],
+        "style_modifiers": [
+          "contemporary",
+          "sophisticated",
+          "eye-catching",
+          "memorable",
+          "genre-appropriate",
+          "market-ready",
+          "professional design"
+        ]
+      },
+      "generation_settings": {
+        "model_version": "ideogram-v2",
+        "quality": "premium",
+        "variations_per_concept": 2,
+        "aspect_ratio": "2:3"
+      },
+      "metadata": {
+        "created_date": "2025-09-08T19:00:07.619633",
+        "total_concepts": 4,
+        "book_title": "Blood Moon Rising",
+        "estimated_tokens": 193
+      }
+    },
+    "image_generation": {
+      "project_slug": "blood-moon-rising",
+      "generation_date": "2025-09-08T19:01:02.188362",
+      "images": [
+        {
+          "success": true,
+          "concept_id": 1,
+          "concept_name": "Market Aligned",
+          "variation": 1,
+          "filename": "blood-moon-rising_concept_1_v1.png",
+          "filepath": "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_1_v1.png",
+          "prompt_used": "Professional paranormal romance book cover, professional design, featuring paranormal_romance, book title \"Blood Moon Rising\" prominently displayed, author name \"Sara Riouch\", commercial book cover design, bestseller aesthetic, high quality typography, genre-appropriate imagery, market-ready design, professional composition, readable at thumbnail size, contemporary design",
+          "image_url": "https://ideogram.ai/api/images/ephemeral/D4uQBSVvSuabfE_C4j_qGA.png?exp=1757437270&sig=595aefcccaafab71a815dcea7a5a1699a4afbb6886fea8014c52c38340aba50e",
+          "cost": 0.08,
+          "generation_time": "2025-09-08T19:01:11.265381"
+        },
+        {
+          "success": true,
+          "concept_id": 1,
+          "concept_name": "Market Aligned",
+          "variation": 2,
+          "filename": "blood-moon-rising_concept_1_v2.png",
+          "filepath": "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_1_v2.png",
+          "prompt_used": "Professional paranormal romance book cover, professional design, featuring paranormal_romance, book title \"Blood Moon Rising\" prominently displayed, author name \"Sara Riouch\", commercial book cover design, bestseller aesthetic, high quality typography, genre-appropriate imagery, market-ready design, professional composition, readable at thumbnail size, contemporary design",
+          "image_url": "https://ideogram.ai/api/images/ephemeral/KJAQW1BKQE-RVGVYOXBASg.png?exp=1757437278&sig=8e9676f1724649df98882148d36441d83d1851af9ca28ce1cbc67437ad312d77",
+          "cost": 0.08,
+          "generation_time": "2025-09-08T19:01:19.421911"
+        },
+        {
+          "success": true,
+          "concept_id": 2,
+          "concept_name": "Trend Forward",
+          "variation": 1,
+          "filename": "blood-moon-rising_concept_2_v1.png",
+          "filepath": "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_2_v1.png",
+          "prompt_used": "Trendy paranormal romance book cover incorporating Illustrated/cartoon style couples and Abstract geometric designs, modern aesthetic, contemporary color palette, current design trends, book title \"Blood Moon Rising\" with modern typography, author \"Sara Riouch\", fresh take on paranormal romance genre, innovative composition, eye-catching design, social media ready, contemporary illustration style, on-trend visual elements",
+          "image_url": "https://ideogram.ai/api/images/ephemeral/15e9vO0OTie7DXlMgrVAHg.png?exp=1757437286&sig=09e997d3d79b19f1be59d08be67c5752c62a623830e23f3d4b26cd9196a59e0b",
+          "cost": 0.08,
+          "generation_time": "2025-09-08T19:01:27.171895"
+        },
+        {
+          "success": true,
+          "concept_id": 2,
+          "concept_name": "Trend Forward",
+          "variation": 2,
+          "filename": "blood-moon-rising_concept_2_v2.png",
+          "filepath": "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_2_v2.png",
+          "prompt_used": "Trendy paranormal romance book cover incorporating Illustrated/cartoon style couples and Abstract geometric designs, modern aesthetic, contemporary color palette, current design trends, book title \"Blood Moon Rising\" with modern typography, author \"Sara Riouch\", fresh take on paranormal romance genre, innovative composition, eye-catching design, social media ready, contemporary illustration style, on-trend visual elements",
+          "image_url": "https://ideogram.ai/api/images/ephemeral/6inIrP8HRLy5GBnhsoS75A.png?exp=1757437295&sig=b8e4358157ff345ba6501a666236153e05102839c0168a4de6c752902aca808b",
+          "cost": 0.08,
+          "generation_time": "2025-09-08T19:01:35.776663"
+        },
+        {
+          "success": true,
+          "concept_id": 3,
+          "concept_name": "Differentiated",
+          "variation": 1,
+          "filename": "blood-moon-rising_concept_3_v1.png",
+          "filepath": "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_3_v1.png",
+          "prompt_used": "Unique paranormal romance book cover design, avoiding Shirtless male torsos, Clinch covers (traditional embrace poses), distinctive visual approach, unexpected color combinations, non-typical paranormal romance imagery, innovative layout, stands out from competition, book title \"Blood Moon Rising\" with creative typography, author \"Sara Riouch\", memorable design, shelf-standout appeal, creative composition, breaks genre conventions while remaining appropriate",
+          "image_url": "https://ideogram.ai/api/images/ephemeral/jxua0qj4Qtmhv1u2WFN4rw.png?exp=1757437302&sig=cf5956df29b2af3df93bef81ed4c8fe304726d437d478293f860327a8df7ad49",
+          "cost": 0.08,
+          "generation_time": "2025-09-08T19:01:43.376485"
+        },
+        {
+          "success": true,
+          "concept_id": 3,
+          "concept_name": "Differentiated",
+          "variation": 2,
+          "filename": "blood-moon-rising_concept_3_v2.png",
+          "filepath": "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_3_v2.png",
+          "prompt_used": "Unique paranormal romance book cover design, avoiding Shirtless male torsos, Clinch covers (traditional embrace poses), distinctive visual approach, unexpected color combinations, non-typical paranormal romance imagery, innovative layout, stands out from competition, book title \"Blood Moon Rising\" with creative typography, author \"Sara Riouch\", memorable design, shelf-standout appeal, creative composition, breaks genre conventions while remaining appropriate",
+          "image_url": "https://ideogram.ai/api/images/ephemeral/htgJ8wpUTKi8RBbPy2saYw.png?exp=1757437312&sig=90fefd67b21ebd206c388dc27612cee634af642336d2c2a5e0609c3727605478",
+          "cost": 0.08,
+          "generation_time": "2025-09-08T19:01:53.125673"
+        },
+        {
+          "success": true,
+          "concept_id": 4,
+          "concept_name": "Artistic Premium",
+          "variation": 1,
+          "filename": "blood-moon-rising_concept_4_v1.png",
+          "filepath": "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_4_v1.png",
+          "prompt_used": "Premium artistic paranormal romance book cover, sophisticated aesthetic, high-end design, literary quality, custom artistic elements, refined color palette, elegant typography, professional photography or illustration, book title \"Blood Moon Rising\" with sophisticated font, author \"Sara Riouch\", gallery-quality composition, premium positioning, artistic flair, sophisticated visual appeal, luxury book design",
+          "image_url": "https://ideogram.ai/api/images/ephemeral/U4v0hujxR66zTnlUJImSNg.png?exp=1757437320&sig=bd6c0e24ce707873a745cc83b9656b82f7fa0c62fbf48e2cbfcdd504654591e5",
+          "cost": 0.08,
+          "generation_time": "2025-09-08T19:02:01.212054"
+        },
+        {
+          "success": true,
+          "concept_id": 4,
+          "concept_name": "Artistic Premium",
+          "variation": 2,
+          "filename": "blood-moon-rising_concept_4_v2.png",
+          "filepath": "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_4_v2.png",
+          "prompt_used": "Premium artistic paranormal romance book cover, sophisticated aesthetic, high-end design, literary quality, custom artistic elements, refined color palette, elegant typography, professional photography or illustration, book title \"Blood Moon Rising\" with sophisticated font, author \"Sara Riouch\", gallery-quality composition, premium positioning, artistic flair, sophisticated visual appeal, luxury book design",
+          "image_url": "https://ideogram.ai/api/images/ephemeral/CKnUONl_RlyXoWuxLo6PAA.png?exp=1757437328&sig=70c9593fc77495ea087bde04093014aa579865479df28164869ceaddab92afb8",
+          "cost": 0.08,
+          "generation_time": "2025-09-08T19:02:09.501279"
+        }
+      ],
+      "errors": [],
+      "total_cost": 0.64,
+      "api_calls": 8
+    },
+    "output_organization": {
+      "project_summary": {
+        "title": "Blood Moon Rising",
+        "author": "Sara Riouch",
+        "genre": "paranormal romance",
+        "completed_date": "2025-09-08T19:02:33.573573"
+      },
+      "deliverables": {
+        "cover_images": [
+          "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_1_v1.png",
+          "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_1_v2.png",
+          "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_2_v1.png",
+          "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_2_v2.png",
+          "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_3_v1.png",
+          "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_3_v2.png",
+          "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_4_v1.png",
+          "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_4_v2.png"
+        ],
+        "research_file": "projects\\blood-moon-rising\\research.json",
+        "strategies_file": "projects\\blood-moon-rising\\strategies.json",
+        "prompts_file": "projects\\blood-moon-rising\\prompts.json"
+      }
+    }
+  },
+  "errors": []
+}

@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(python:*)",
+      "Bash(dir \"C:\\Users\\riouc\\Documents\\1.TOOLS\\book-cover-generator\\projects\\blood-moon-rising\")",
+      "Bash(dir \"C:\\Users\\riouc\\Documents\\1.TOOLS\\book-cover-generator\\projects\\blood-moon-rising\\covers\")"
     ],
     "deny": [],
     "ask": []

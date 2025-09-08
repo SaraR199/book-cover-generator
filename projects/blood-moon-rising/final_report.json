@@ -1,0 +1,23 @@
+{
+  "project_summary": {
+    "title": "Blood Moon Rising",
+    "author": "Sara Riouch",
+    "genre": "paranormal romance",
+    "completed_date": "2025-09-08T19:02:33.573573"
+  },
+  "deliverables": {
+    "cover_images": [
+      "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_1_v1.png",
+      "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_1_v2.png",
+      "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_2_v1.png",
+      "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_2_v2.png",
+      "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_3_v1.png",
+      "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_3_v2.png",
+      "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_4_v1.png",
+      "projects\\blood-moon-rising\\covers\\blood-moon-rising_concept_4_v2.png"
+    ],
+    "research_file": "projects\\blood-moon-rising\\research.json",
+    "strategies_file": "projects\\blood-moon-rising\\strategies.json",
+    "prompts_file": "projects\\blood-moon-rising\\prompts.json"
+  }
+}

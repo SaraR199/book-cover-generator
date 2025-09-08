@@ -1,0 +1,90 @@
+{
+  "concepts": [
+    {
+      "id": 1,
+      "concept_name": "Market Aligned",
+      "design_approach": "Follows proven successful patterns in the genre",
+      "strategy": "safe_effective",
+      "color_palette": {
+        "name": "Passionate",
+        "colors": [
+          "#FF6B6B",
+          "#FF8E8E",
+          "#FFB6C1"
+        ],
+        "usage": "high"
+      },
+      "typography": {
+        "style": "Script/Cursive",
+        "usage": "very high",
+        "examples": [
+          "brush script",
+          "calligraphy"
+        ]
+      },
+      "imagery_focus": "Couple silhouettes",
+      "rationale": "Uses established visual language that readers expect and respond to in this genre",
+      "risk_level": "low",
+      "differentiation_level": "medium"
+    },
+    {
+      "id": 2,
+      "concept_name": "Trend Forward",
+      "design_approach": "Incorporates Illustrated/cartoon style couples with Abstract geometric designs",
+      "strategy": "trendy_contemporary",
+      "primary_trend": "Illustrated/cartoon style couples",
+      "emerging_element": "Abstract geometric designs",
+      "color_approach": "contemporary color trends",
+      "typography_approach": "modern, on-trend fonts",
+      "rationale": "Capitalizes on what's currently working while incorporating fresh elements",
+      "risk_level": "medium",
+      "differentiation_level": "high"
+    },
+    {
+      "id": 3,
+      "concept_name": "Differentiated",
+      "design_approach": "Deliberately stands apart from common genre clichés",
+      "strategy": "unique_standout",
+      "avoids": [
+        "Shirtless male torsos",
+        "Clinch covers (traditional embrace poses)",
+        "Purple/pink gradient backgrounds"
+      ],
+      "unique_elements": [
+        "Unexpected color combinations",
+        "Non-typical genre imagery",
+        "Innovative layout approach"
+      ],
+      "differentiation_strategy": "Avoids: Shirtless male torsos, Clinch covers (traditional embrace poses)",
+      "rationale": "Designed to stand out on crowded digital shelves by avoiding overused elements",
+      "risk_level": "medium-high",
+      "differentiation_level": "very high"
+    },
+    {
+      "id": 4,
+      "concept_name": "Artistic Premium",
+      "design_approach": "High-end aesthetic with artistic flair",
+      "strategy": "premium_artistic",
+      "aesthetic_focus": "sophisticated visual appeal",
+      "artistic_elements": [
+        "Custom illustration or photography",
+        "Sophisticated color relationships",
+        "Premium typography choices",
+        "Balanced composition"
+      ],
+      "target_perception": "Literary quality, professional, premium product",
+      "rationale": "Appeals to readers who value aesthetic quality and positions book as premium offering",
+      "risk_level": "low-medium",
+      "differentiation_level": "high"
+    }
+  ],
+  "rationale": {
+    "approach": "Multi-strategy approach covering safe, trendy, unique, and premium aesthetics",
+    "target_coverage": "Ensures options for different market positions and author preferences"
+  },
+  "metadata": {
+    "created_date": "2025-09-08T19:00:01.518172",
+    "total_concepts": 4,
+    "genre": "paranormal romance"
+  }
+}

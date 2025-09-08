@@ -1,0 +1,177 @@
+{
+  "genre_analysis": {
+    "genre": "paranormal romance",
+    "genre_category": "romance",
+    "bestsellers_analyzed": [
+      {
+        "title": "Example Romance 1",
+        "cover_style": "couple embrace",
+        "colors": [
+          "pink",
+          "purple"
+        ]
+      },
+      {
+        "title": "Example Romance 2",
+        "cover_style": "single figure",
+        "colors": [
+          "red",
+          "gold"
+        ]
+      }
+    ],
+    "common_elements": {
+      "color_palettes": [
+        {
+          "name": "Passionate",
+          "colors": [
+            "#FF6B6B",
+            "#FF8E8E",
+            "#FFB6C1"
+          ],
+          "usage": "high"
+        },
+        {
+          "name": "Elegant",
+          "colors": [
+            "#800080",
+            "#9370DB",
+            "#DDA0DD"
+          ],
+          "usage": "medium"
+        },
+        {
+          "name": "Warm Gold",
+          "colors": [
+            "#FFD700",
+            "#FFA500",
+            "#FFCCCB"
+          ],
+          "usage": "medium"
+        }
+      ],
+      "typography_styles": [
+        {
+          "style": "Script/Cursive",
+          "usage": "very high",
+          "examples": [
+            "brush script",
+            "calligraphy"
+          ]
+        },
+        {
+          "style": "Serif Elegant",
+          "usage": "high",
+          "examples": [
+            "Playfair",
+            "Crimson"
+          ]
+        },
+        {
+          "style": "Sans Modern",
+          "usage": "medium",
+          "examples": [
+            "Montserrat",
+            "Lato"
+          ]
+        }
+      ],
+      "imagery_types": [
+        {
+          "type": "Couple silhouettes",
+          "usage": "very high"
+        },
+        {
+          "type": "Single attractive figure",
+          "usage": "high"
+        },
+        {
+          "type": "Romantic objects (roses, rings)",
+          "usage": "medium"
+        },
+        {
+          "type": "Scenic backgrounds",
+          "usage": "medium"
+        }
+      ],
+      "layout_patterns": [
+        {
+          "pattern": "Title prominent top, author bottom",
+          "usage": "very high"
+        },
+        {
+          "pattern": "Overlaid text on image",
+          "usage": "high"
+        },
+        {
+          "pattern": "Decorative borders/frames",
+          "usage": "medium"
+        }
+      ]
+    },
+    "trends": {
+      "current_popular": [
+        "Illustrated/cartoon style couples",
+        "Minimalist with bold typography",
+        "Diverse character representation",
+        "Foil accents and textures"
+      ],
+      "oversaturated": [
+        "Shirtless male torsos",
+        "Clinch covers (traditional embrace poses)",
+        "Purple/pink gradient backgrounds"
+      ],
+      "emerging": [
+        "Abstract geometric designs",
+        "Photography with illustration overlay",
+        "Vintage/retro aesthetic revival"
+      ]
+    }
+  },
+  "design_opportunities": {
+    "differentiation_areas": [
+      "Unique color combinations not commonly used in genre",
+      "Fresh take on typical genre imagery",
+      "Modern typography that stands out",
+      "Cultural or regional specificity"
+    ],
+    "market_gaps": [
+      "Underserved demographics in romance",
+      "Fresh artistic styles not yet adopted",
+      "Cross-genre hybrid approaches"
+    ],
+    "recommended_approaches": [
+      "Focus on emotional connection over genre stereotypes",
+      "Use contemporary design trends adapted to genre",
+      "Consider accessibility and readability",
+      "Plan for thumbnail visibility in online stores"
+    ]
+  },
+  "competitive_analysis": {
+    "similar_books": [
+      "Analysis would include specific competing titles",
+      "Cover effectiveness assessment",
+      "Market performance correlation"
+    ],
+    "cover_effectiveness": [
+      "Thumbnail visibility score",
+      "Genre appropriateness rating",
+      "Uniqueness factor"
+    ],
+    "lessons_learned": [
+      "What works in current market",
+      "Common mistakes to avoid",
+      "Opportunities for improvement"
+    ]
+  },
+  "metadata": {
+    "research_date": "2025-09-08T18:59:52.272061",
+    "sources_used": [
+      "Amazon Bestsellers",
+      "Goodreads",
+      "BookBub",
+      "Genre Analysis"
+    ],
+    "confidence_score": 85
+  }
+}

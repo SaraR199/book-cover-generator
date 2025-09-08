@@ -78,15 +78,15 @@ class IdeogramClient:
                     
             except Exception as e:
                 error_msg = f"Failed to generate concept {concept['id']}: {str(e)}"
-                print(f"    ❌ {error_msg}")
+                print(f"    {error_msg}")
                 results["errors"].append({
                     "concept_id": concept["id"],
                     "error": error_msg
                 })
         
-        print(f"  ✓ Generated {len(results['images'])} images")
+        print(f"  Generated {len(results['images'])} images")
         if results["errors"]:
-            print(f"  ⚠️  {len(results['errors'])} errors occurred")
+            print(f"  {len(results['errors'])} errors occurred")
         
         return results
     
@@ -153,7 +153,7 @@ class IdeogramClient:
     def _simulate_generation(self, project_slug: str, prompts_data: Dict, output_dir: Path) -> Dict:
         """Simulate image generation when no API key is available"""
         
-        print("  🔄 Simulating image generation (no API key provided)")
+        print("  Simulating image generation (no API key provided)")
         
         results = {
             "project_slug": project_slug,
@@ -224,7 +224,7 @@ export IDEOGRAM_API_KEY="your-api-key-here"
                     "generation_time": datetime.now().isoformat()
                 })
         
-        print(f"  ✓ Created {len(results['images'])} placeholder files")
+        print(f"  Created {len(results['images'])} placeholder files")
         return results
     
     def _download_image(self, url: str, filepath: Path) -> bool:
@@ -239,7 +239,7 @@ export IDEOGRAM_API_KEY="your-api-key-here"
             return True
             
         except Exception as e:
-            print(f"    ❌ Failed to download image: {str(e)}")
+            print(f"    Failed to download image: {str(e)}")
             return False
     
     def _map_style_type(self, style: str) -> str:

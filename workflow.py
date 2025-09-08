@@ -6,10 +6,25 @@ AI-assisted book cover generation with market research and Ideogram API
 
 import argparse
 import sys
+import os
 from pathlib import Path
 
 # Add src directory to path
 sys.path.append(str(Path(__file__).parent / "src"))
+
+# Load environment variables from .env file
+def load_env():
+    env_file = Path(__file__).parent / '.env'
+    if env_file.exists():
+        with open(env_file, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#'):
+                    key, _, value = line.partition('=')
+                    if key and value:
+                        os.environ[key] = value
+
+load_env()
 
 from workflow_state import WorkflowState
 from market_research import MarketResearcher
@@ -28,7 +43,7 @@ class BookCoverWorkflow:
         """Create a new book cover project"""
         print(f"Creating new project for '{title}' by {author}")
         slug = self.state_manager.create_new_project(title, author, genre, description)
-        print(f"✓ Project created: {slug}")
+        print(f"Project created: {slug}")
         print(f"  Location: projects/{slug}/")
         return slug
     
@@ -36,7 +51,7 @@ class BookCoverWorkflow:
         """Resume existing project from current step"""
         state = self.state_manager.load_project_state(slug)
         if not state:
-            print(f"❌ Project '{slug}' not found")
+            print(f"Project '{slug}' not found")
             return False
         
         current_step = state.get("current_step")
@@ -47,10 +62,14 @@ class BookCoverWorkflow:
     
     def run_step(self, slug: str, step_id: str) -> bool:
         """Run a specific workflow step"""
-        print(f"\\n🔄 Running step: {step_id}")
+        print(f"\\nRunning step: {step_id}")
         
         try:
-            if step_id == "market_research":
+            if step_id == "input_collection":
+                # Input collection is already done, move to next step
+                print("Input collection already completed, moving to market research")
+                return self._run_market_research(slug)
+            elif step_id == "market_research":
                 return self._run_market_research(slug)
             elif step_id == "cover_strategy":
                 return self._run_cover_strategy(slug)
@@ -61,11 +80,11 @@ class BookCoverWorkflow:
             elif step_id == "output_organization":
                 return self._run_output_organization(slug)
             else:
-                print(f"❌ Unknown step: {step_id}")
+                print(f"Unknown step: {step_id}")
                 return False
                 
         except Exception as e:
-            print(f"❌ Error in step {step_id}: {str(e)}")
+            print(f"Error in step {step_id}: {str(e)}")
             return False
     
     def _run_market_research(self, slug: str) -> bool:
@@ -77,14 +96,14 @@ class BookCoverWorkflow:
         input_data = self.state_manager._load_json(project_dir / "input.json")
         genre = input_data["book_info"]["genre"]
         
-        print(f"🔍 Researching {genre} market trends...")
+        print(f"Researching {genre} market trends...")
         research_data = self.market_researcher.research_genre(genre)
         
         # Save research results
         self.state_manager._save_json(project_dir / "research.json", research_data)
         self.state_manager.update_step_status(slug, "market_research", "completed", research_data)
         
-        print("✓ Market research completed")
+        print("Market research completed")
         return True
     
     def _run_cover_strategy(self, slug: str) -> bool:
@@ -95,14 +114,14 @@ class BookCoverWorkflow:
         input_data = self.state_manager._load_json(project_dir / "input.json")
         research_data = self.state_manager._load_json(project_dir / "research.json")
         
-        print("🎨 Developing cover strategies...")
+        print("Developing cover strategies...")
         strategies = self.cover_generator.develop_strategies(input_data, research_data)
         
         # Save strategies
         self.state_manager._save_json(project_dir / "strategies.json", strategies)
         self.state_manager.update_step_status(slug, "cover_strategy", "completed", strategies)
         
-        print(f"✓ Generated {len(strategies.get('concepts', []))} cover concepts")
+        print(f"Generated {len(strategies.get('concepts', []))} cover concepts")
         return True
     
     def _run_prompt_generation(self, slug: str) -> bool:
@@ -113,14 +132,14 @@ class BookCoverWorkflow:
         input_data = self.state_manager._load_json(project_dir / "input.json")
         strategies = self.state_manager._load_json(project_dir / "strategies.json")
         
-        print("📝 Creating Ideogram prompts...")
+        print("Creating Ideogram prompts...")
         prompts = self.cover_generator.create_prompts(input_data, strategies)
         
         # Save prompts
         self.state_manager._save_json(project_dir / "prompts.json", prompts)
         self.state_manager.update_step_status(slug, "prompt_generation", "completed", prompts)
         
-        print(f"✓ Generated {len(prompts.get('cover_concepts', []))} detailed prompts")
+        print(f"Generated {len(prompts.get('cover_concepts', []))} detailed prompts")
         return True
     
     def _run_image_generation(self, slug: str) -> bool:
@@ -130,14 +149,14 @@ class BookCoverWorkflow:
         project_dir = self.project_root / "projects" / slug
         prompts_data = self.state_manager._load_json(project_dir / "prompts.json")
         
-        print("🖼️  Generating cover images...")
+        print("Generating cover images...")
         results = self.ideogram_client.generate_covers(slug, prompts_data, project_dir / "covers")
         
         # Save generation results
         self.state_manager._save_json(project_dir / "generation_results.json", results)
         self.state_manager.update_step_status(slug, "image_generation", "completed", results)
         
-        print(f"✓ Generated {len(results.get('images', []))} cover images")
+        print(f"Generated {len(results.get('images', []))} cover images")
         return True
     
     def _run_output_organization(self, slug: str) -> bool:
@@ -146,7 +165,7 @@ class BookCoverWorkflow:
         
         project_dir = self.project_root / "projects" / slug
         
-        print("📁 Organizing output...")
+        print("Organizing output...")
         
         # Create final report
         report = self._create_final_report(slug)
@@ -154,8 +173,8 @@ class BookCoverWorkflow:
         
         self.state_manager.update_step_status(slug, "output_organization", "completed", report)
         
-        print("✓ Project completed!")
-        print(f"📍 Results in: projects/{slug}/")
+        print("Project completed!")
+        print(f"Results in: projects/{slug}/")
         return True
     
     def _create_final_report(self, slug: str) -> dict:
@@ -173,7 +192,7 @@ class BookCoverWorkflow:
                 "completed_date": self.state_manager.load_project_state(slug)["last_modified"]
             },
             "deliverables": {
-                "cover_images": list((project_dir / "covers").glob("*.png")),
+                "cover_images": [str(f) for f in (project_dir / "covers").glob("*")],
                 "research_file": str(project_dir / "research.json"),
                 "strategies_file": str(project_dir / "strategies.json"),
                 "prompts_file": str(project_dir / "prompts.json")
@@ -193,7 +212,7 @@ class BookCoverWorkflow:
         print("\\nProjects:")
         print("-" * 80)
         for project in projects:
-            status_emoji = "✅" if project["completed_steps"] == 6 else "🔄"
+            status_emoji = "[DONE]" if project["completed_steps"] == 6 else "[WIP]"
             print(f"{status_emoji} {project['title']} by {project['author']}")
             print(f"   Slug: {project['slug']}")
             print(f"   Progress: {project['completed_steps']}/6 steps")

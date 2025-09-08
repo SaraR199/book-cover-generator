@@ -1,0 +1,14 @@
+{
+  "api_keys": {
+    "ideogram": {
+      "key": null,
+      "note": "Set IDEOGRAM_API_KEY environment variable or update this file",
+      "docs": "https://docs.ideogram.ai/docs/getting-started"
+    }
+  },
+  "instructions": {
+    "environment_variable": "export IDEOGRAM_API_KEY='your-key-here'",
+    "config_file": "Update this file with your API keys (not recommended for security)",
+    "verification": "Run: python workflow.py --status to check API connectivity"
+  }
+}
