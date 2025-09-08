@@ -173,16 +173,14 @@ class CoverGenerator:
                 "negative_prompts": [
                     "low quality", "blurry", "pixelated", "amateur", "unprofessional",
                     "generic stock photo", "cliche", "overused", "poor composition",
-                    "bad typography", "illegible text", "cluttered"
+                    "bad typography", "illegible text", "cluttered", "extra text",
+                    "unwanted text", "random words", "marketing copy"
                 ],
                 "quality_enhancers": [
-                    "professional book cover design", "high quality", "detailed",
-                    "crisp", "professional typography", "well composed",
-                    "commercial quality", "bestseller aesthetic"
+                    "detailed", "crisp", "well composed", "high resolution"
                 ],
                 "style_modifiers": [
-                    "contemporary", "sophisticated", "eye-catching", "memorable",
-                    "genre-appropriate", "market-ready", "professional design"
+                    "contemporary", "sophisticated", "elegant", "artistic"
                 ]
             },
             "generation_settings": {
@@ -275,35 +273,32 @@ class CoverGenerator:
     def _build_market_aligned_prompt(self, title: str, author: str, genre: str, themes: List[str], concept: Dict) -> str:
         """Build prompt for market-aligned concept"""
         
-        genre_styles = {
-            "romance": "romantic book cover, elegant design, warm colors, appealing to romance readers",
-            "thriller": "thriller book cover, dark atmosphere, suspenseful mood, crime fiction aesthetic", 
-            "fantasy": "fantasy book cover, magical elements, epic atmosphere, fantasy fiction style",
-            "mystery": "mystery book cover, intriguing atmosphere, noir elements, detective fiction style"
+        genre_visuals = {
+            "romance": "elegant couple silhouette, soft lighting, warm romantic atmosphere",
+            "thriller": "dark cityscape, shadows, dramatic lighting, urban setting", 
+            "fantasy": "mystical landscape, magical elements, ethereal lighting, fantasy setting",
+            "mystery": "foggy street scene, vintage detective elements, noir lighting"
         }
         
-        base_style = genre_styles.get(genre.lower(), f"{genre} book cover, professional design")
-        theme_elements = ", ".join(themes) if themes else genre
+        visual_elements = genre_visuals.get(genre.lower(), f"{genre} themed imagery")
+        theme_elements = ", ".join(themes) if themes else ""
         
-        prompt = f"""Professional {base_style}, featuring {theme_elements}, 
-        book title "{title}" prominently displayed, author name "{author}",
-        commercial book cover design, bestseller aesthetic, high quality typography,
-        genre-appropriate imagery, market-ready design, professional composition,
-        readable at thumbnail size, contemporary design"""
+        prompt = f"""{visual_elements}, {theme_elements}, 
+        elegant title text "{title}", author text "{author}",
+        clean typography, balanced composition"""
         
         return self._clean_prompt(prompt)
     
     def _build_trend_forward_prompt(self, title: str, author: str, genre: str, themes: List[str], concept: Dict) -> str:
         """Build prompt for trend-forward concept"""
         
-        trend_element = concept.get("primary_trend", "contemporary design")
-        emerging_element = concept.get("emerging_element", "innovative approach")
+        trend_element = concept.get("primary_trend", "modern geometric shapes")
+        emerging_element = concept.get("emerging_element", "minimalist design")
         
-        prompt = f"""Trendy {genre} book cover incorporating {trend_element} and {emerging_element},
-        modern aesthetic, contemporary color palette, current design trends,
-        book title "{title}" with modern typography, author "{author}",
-        fresh take on {genre} genre, innovative composition, eye-catching design,
-        social media ready, contemporary illustration style, on-trend visual elements"""
+        prompt = f"""Contemporary {genre} cover with {trend_element}, {emerging_element},
+        vibrant modern colors, sleek composition,
+        bold title text "{title}", stylish author text "{author}",
+        trendy visual style"""
         
         return self._clean_prompt(prompt)
     
@@ -311,26 +306,22 @@ class CoverGenerator:
         """Build prompt for differentiated concept"""
         
         avoided_elements = concept.get("avoids", [])
-        avoidance_note = f"avoiding {', '.join(avoided_elements[:2])}" if avoided_elements else "unique approach"
+        unique_visuals = "abstract art composition, unexpected color palette, unconventional layout"
         
-        prompt = f"""Unique {genre} book cover design, {avoidance_note},
-        distinctive visual approach, unexpected color combinations, 
-        non-typical {genre} imagery, innovative layout, stands out from competition,
-        book title "{title}" with creative typography, author "{author}",
-        memorable design, shelf-standout appeal, creative composition,
-        breaks genre conventions while remaining appropriate"""
+        prompt = f"""Unique {genre} cover, {unique_visuals},
+        creative visual elements, artistic composition,
+        distinctive title text "{title}", creative author text "{author}",
+        innovative design approach"""
         
         return self._clean_prompt(prompt)
     
     def _build_artistic_prompt(self, title: str, author: str, genre: str, themes: List[str], concept: Dict) -> str:
         """Build prompt for artistic premium concept"""
         
-        prompt = f"""Premium artistic {genre} book cover, sophisticated aesthetic,
-        high-end design, literary quality, custom artistic elements,
-        refined color palette, elegant typography, professional photography or illustration,
-        book title "{title}" with sophisticated font, author "{author}",
-        gallery-quality composition, premium positioning, artistic flair,
-        sophisticated visual appeal, luxury book design"""
+        prompt = f"""Artistic {genre} cover, fine art illustration, sophisticated colors,
+        elegant visual composition, refined artistic style,
+        beautiful title text "{title}", elegant author text "{author}",
+        gallery-style artwork, premium aesthetic"""
         
         return self._clean_prompt(prompt)
     
@@ -339,9 +330,8 @@ class CoverGenerator:
         
         theme_text = ", ".join(themes) if themes else genre
         
-        prompt = f"""Professional {genre} book cover, {theme_text} theme,
-        book title "{title}", author "{author}", clean design, readable typography,
-        genre-appropriate styling, commercial quality, professional composition"""
+        prompt = f"""{genre} book cover, {theme_text} imagery,
+        title text "{title}", author text "{author}", clean design, balanced layout"""
         
         return self._clean_prompt(prompt)
     
@@ -404,9 +394,33 @@ class CoverGenerator:
         # Remove extra whitespace and normalize
         cleaned = " ".join(prompt.split())
         
+        # Remove marketing-heavy phrases that might appear as text
+        marketing_phrases = [
+            "commercial book cover design",
+            "bestseller aesthetic", 
+            "market-ready design",
+            "professional composition",
+            "readable at thumbnail size",
+            "commercial quality",
+            "professional design",
+            "genre-appropriate styling",
+            "social media ready",
+            "shelf-standout appeal",
+            "premium positioning",
+            "luxury book design"
+        ]
+        
+        for phrase in marketing_phrases:
+            cleaned = cleaned.replace(phrase, "")
+        
         # Remove redundant phrases
         redundant_phrases = ["book cover design book cover", "professional professional"]
         for phrase in redundant_phrases:
             cleaned = cleaned.replace(phrase, phrase.split()[0])
+        
+        # Clean up extra commas and spaces
+        cleaned = " ".join(cleaned.split())
+        cleaned = cleaned.replace(", ,", ",").replace(",,", ",")
+        cleaned = cleaned.strip(", ")
         
         return cleaned

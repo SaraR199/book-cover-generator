@@ -1,8 +1,8 @@
 {
   "project_slug": "blood-moon-rising",
   "created_date": "2025-09-08T18:58:16.019696",
-  "last_modified": "2025-09-08T19:02:33.618851",
-  "current_step": null,
+  "last_modified": "2025-09-08T19:11:57.041132",
+  "current_step": "image_generation",
   "completed_steps": [
     "market_research",
     "cover_strategy",
@@ -25,7 +25,7 @@
     },
     "prompt_generation": {
       "status": "completed",
-      "timestamp": "2025-09-08T19:00:07.632783"
+      "timestamp": "2025-09-08T19:11:57.041132"
     },
     "image_generation": {
       "status": "completed",
@@ -310,7 +310,7 @@
           "id": 1,
           "concept_name": "Market Aligned",
           "design_approach": "Follows proven successful patterns in the genre",
-          "ideogram_prompt": "Professional paranormal romance book cover, professional design, featuring paranormal_romance, book title \"Blood Moon Rising\" prominently displayed, author name \"Sara Riouch\", commercial book cover design, bestseller aesthetic, high quality typography, genre-appropriate imagery, market-ready design, professional composition, readable at thumbnail size, contemporary design",
+          "ideogram_prompt": "paranormal romance themed imagery, paranormal_romance, elegant title text \"Blood Moon Rising\", author text \"Sara Riouch\", clean typography, balanced composition",
           "style_parameters": {
             "aspect_ratio": "2:3",
             "style": "photographic",
@@ -330,7 +330,7 @@
           "id": 2,
           "concept_name": "Trend Forward",
           "design_approach": "Incorporates Illustrated/cartoon style couples with Abstract geometric designs",
-          "ideogram_prompt": "Trendy paranormal romance book cover incorporating Illustrated/cartoon style couples and Abstract geometric designs, modern aesthetic, contemporary color palette, current design trends, book title \"Blood Moon Rising\" with modern typography, author \"Sara Riouch\", fresh take on paranormal romance genre, innovative composition, eye-catching design, social media ready, contemporary illustration style, on-trend visual elements",
+          "ideogram_prompt": "Contemporary paranormal romance cover with Illustrated/cartoon style couples, Abstract geometric designs, vibrant modern colors, sleek composition, bold title text \"Blood Moon Rising\", stylish author text \"Sara Riouch\", trendy visual style",
           "style_parameters": {
             "aspect_ratio": "2:3",
             "style": "modern",
@@ -350,7 +350,7 @@
           "id": 3,
           "concept_name": "Differentiated",
           "design_approach": "Deliberately stands apart from common genre clichés",
-          "ideogram_prompt": "Unique paranormal romance book cover design, avoiding Shirtless male torsos, Clinch covers (traditional embrace poses), distinctive visual approach, unexpected color combinations, non-typical paranormal romance imagery, innovative layout, stands out from competition, book title \"Blood Moon Rising\" with creative typography, author \"Sara Riouch\", memorable design, shelf-standout appeal, creative composition, breaks genre conventions while remaining appropriate",
+          "ideogram_prompt": "Unique paranormal romance cover, abstract art composition, unexpected color palette, unconventional layout, creative visual elements, artistic composition, distinctive title text \"Blood Moon Rising\", creative author text \"Sara Riouch\", innovative design approach",
           "style_parameters": {
             "aspect_ratio": "2:3",
             "style": "artistic",
@@ -370,7 +370,7 @@
           "id": 4,
           "concept_name": "Artistic Premium",
           "design_approach": "High-end aesthetic with artistic flair",
-          "ideogram_prompt": "Premium artistic paranormal romance book cover, sophisticated aesthetic, high-end design, literary quality, custom artistic elements, refined color palette, elegant typography, professional photography or illustration, book title \"Blood Moon Rising\" with sophisticated font, author \"Sara Riouch\", gallery-quality composition, premium positioning, artistic flair, sophisticated visual appeal, luxury book design",
+          "ideogram_prompt": "Artistic paranormal romance cover, fine art illustration, sophisticated colors, elegant visual composition, refined artistic style, beautiful title text \"Blood Moon Rising\", elegant author text \"Sara Riouch\", gallery-style artwork, premium aesthetic",
           "style_parameters": {
             "aspect_ratio": "2:3",
             "style": "illustrated",
@@ -400,26 +400,23 @@
           "poor composition",
           "bad typography",
           "illegible text",
-          "cluttered"
+          "cluttered",
+          "extra text",
+          "unwanted text",
+          "random words",
+          "marketing copy"
         ],
         "quality_enhancers": [
-          "professional book cover design",
-          "high quality",
           "detailed",
           "crisp",
-          "professional typography",
           "well composed",
-          "commercial quality",
-          "bestseller aesthetic"
+          "high resolution"
         ],
         "style_modifiers": [
           "contemporary",
           "sophisticated",
-          "eye-catching",
-          "memorable",
-          "genre-appropriate",
-          "market-ready",
-          "professional design"
+          "elegant",
+          "artistic"
         ]
       },
       "generation_settings": {
@@ -429,10 +426,10 @@
         "aspect_ratio": "2:3"
       },
       "metadata": {
-        "created_date": "2025-09-08T19:00:07.619633",
+        "created_date": "2025-09-08T19:11:57.022580",
         "total_concepts": 4,
         "book_title": "Blood Moon Rising",
-        "estimated_tokens": 193
+        "estimated_tokens": 110
       }
     },
     "image_generation": {

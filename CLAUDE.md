@@ -48,3 +48,28 @@ The workflow automatically saves state after each step. Resume anytime with:
 ```bash
 python workflow.py --resume "book-slug"
 ```
+
+## Ideogram Prompt Guidelines
+
+The system generates clean, visual-focused prompts to avoid unwanted text on covers:
+
+### What's Included
+- **Visual Elements**: Specific imagery, lighting, composition details
+- **Title/Author Text**: Only the exact book title and author name in quotes
+- **Style Descriptors**: Art style, color palette, mood
+
+### What's Excluded
+- Marketing language (e.g., "bestseller aesthetic", "commercial quality")
+- Business terms (e.g., "market-ready", "professional design") 
+- Quality descriptors that might render as text (e.g., "high quality typography")
+
+### Example Clean Prompt
+```
+elegant couple silhouette, soft lighting, warm romantic atmosphere, 
+elegant title text "Blood Moon Rising", author text "Sara Riouch",
+clean typography, balanced composition
+```
+
+### Negative Prompts
+The system automatically includes negative prompts to prevent unwanted text:
+- "extra text", "unwanted text", "random words", "marketing copy"
