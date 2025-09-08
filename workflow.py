@@ -47,6 +47,73 @@ class BookCoverWorkflow:
         print(f"  Location: projects/{slug}/")
         return slug
     
+    def create_interactive_project(self) -> str:
+        """Create a new project using interactive input"""
+        print("=== Interactive Book Cover Project Creation ===\n")
+        
+        # Get title
+        title = input("Book Title: ").strip()
+        if not title:
+            print("Error: Title is required")
+            return None
+        
+        # Get author
+        author = input("Author Name: ").strip()
+        if not author:
+            print("Error: Author name is required")
+            return None
+        
+        # Get genre with suggestions
+        print("\nCommon genres: romance, thriller, fantasy, mystery, sci-fi, literary fiction, horror")
+        genre = input("Genre: ").strip()
+        if not genre:
+            print("Error: Genre is required")
+            return None
+        
+        # Get description with multi-line support
+        print("\nBook Description/Blurb:")
+        print("(You can paste your full book blurb here. Press Enter twice when finished)\n")
+        
+        description_lines = []
+        empty_lines = 0
+        
+        while True:
+            try:
+                line = input()
+                if line.strip() == "":
+                    empty_lines += 1
+                    if empty_lines >= 2:
+                        break
+                    description_lines.append(line)
+                else:
+                    empty_lines = 0
+                    description_lines.append(line)
+            except EOFError:
+                break
+        
+        description = "\n".join(description_lines).strip()
+        
+        if not description:
+            print("Error: Description is required")
+            return None
+        
+        # Show summary and confirm
+        print("\n" + "="*50)
+        print("PROJECT SUMMARY")
+        print("="*50)
+        print(f"Title: {title}")
+        print(f"Author: {author}")
+        print(f"Genre: {genre}")
+        print(f"Description: {description[:100]}{'...' if len(description) > 100 else ''}")
+        print("="*50)
+        
+        confirm = input("\nCreate this project? [y/N]: ").strip().lower()
+        if confirm not in ['y', 'yes']:
+            print("Project creation cancelled")
+            return None
+        
+        return self.create_new_project(title, author, genre, description)
+    
     def resume_project(self, slug: str):
         """Resume existing project from current step"""
         state = self.state_manager.load_project_state(slug)
@@ -224,6 +291,8 @@ def main():
     parser = argparse.ArgumentParser(description='AI-assisted book cover generator')
     parser.add_argument('--new', nargs=4, metavar=('TITLE', 'AUTHOR', 'GENRE', 'DESCRIPTION'),
                         help='Create new project: --new "Title" "Author" "Genre" "Description"')
+    parser.add_argument('--interactive', action='store_true',
+                        help='Create new project using interactive prompts (recommended for long descriptions)')
     parser.add_argument('--resume', help='Resume project by slug')
     parser.add_argument('--step', nargs=2, metavar=('SLUG', 'STEP'), 
                         help='Run specific step: --step project-slug step-name')
@@ -236,7 +305,13 @@ def main():
     if args.new:
         title, author, genre, description = args.new
         slug = workflow.create_new_project(title, author, genre, description)
-        print(f"\\nNext: python workflow.py --resume {slug}")
+        if slug:
+            print(f"\\nNext: python workflow.py --resume {slug}")
+        
+    elif args.interactive:
+        slug = workflow.create_interactive_project()
+        if slug:
+            print(f"\\nNext: python workflow.py --resume {slug}")
         
     elif args.resume:
         workflow.resume_project(args.resume)

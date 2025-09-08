@@ -4,8 +4,15 @@ An AI-assisted workflow for generating professional book covers using market res
 
 ## Quick Start
 
+### Interactive Mode (Recommended)
 ```bash
-python workflow.py --new "My Book Title" --author "Author Name" --genre "romantic suspense" --description "Brief plot description"
+python workflow.py --interactive
+```
+This will prompt you for each field and allow multi-line descriptions.
+
+### Command Line Mode
+```bash
+python workflow.py --new "My Book Title" "Author Name" "romantic suspense" "Brief plot description"
 ```
 
 ## Folder Structure
@@ -36,7 +43,8 @@ book-cover-generator/
 
 ## Commands
 
-- `--new` - Start new book project
+- `--interactive` - Create new project with guided prompts (recommended for long descriptions)
+- `--new` - Create new project with command line arguments
 - `--resume` - Resume existing project
 - `--step` - Run specific step only
 - `--list` - List all projects
@@ -73,3 +81,47 @@ clean typography, balanced composition
 ### Negative Prompts
 The system automatically includes negative prompts to prevent unwanted text:
 - "extra text", "unwanted text", "random words", "marketing copy"
+
+## Interactive Mode Features
+
+When using `--interactive`, you get:
+
+- **Easy Multi-line Descriptions**: Paste your full book blurb without worrying about shell escaping
+- **Genre Suggestions**: Common genres are displayed to help with selection
+- **Input Validation**: Required fields are checked before proceeding
+- **Summary Review**: See all your input before creating the project
+- **Confirmation Prompt**: Confirm before project creation
+
+### Interactive Mode Example
+```
+=== Interactive Book Cover Project Creation ===
+
+Book Title: Blood Moon Rising
+Author Name: Sara Riouch
+
+Common genres: romance, thriller, fantasy, mystery, sci-fi, literary fiction, horror
+Genre: paranormal romance
+
+Book Description/Blurb:
+(You can paste your full book blurb here. Press Enter twice when finished)
+
+Luna thought her biggest problem was hiding her wolf shifter 
+abilities from her human coworkers. But when the mysterious 
+Kai arrives in town during the blood moon, everything changes.
+
+As alpha of the most feared pack in the region, Kai recognizes 
+Luna as his fated mate instantly. But Luna has secrets that 
+could destroy both their packs, and enemies from Kai's past 
+are closing in.
+
+==================================================
+PROJECT SUMMARY
+==================================================
+Title: Blood Moon Rising
+Author: Sara Riouch
+Genre: paranormal romance
+Description: Luna thought her biggest problem was hiding her wolf shifter abilities from her human coworkers...
+==================================================
+
+Create this project? [y/N]: y
+```
