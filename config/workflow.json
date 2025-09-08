@@ -1,0 +1,50 @@
+{
+  "version": "1.0.0",
+  "steps": [
+    {
+      "id": "input_collection",
+      "name": "Input Collection",
+      "description": "Gather and validate book information",
+      "required": true
+    },
+    {
+      "id": "market_research",
+      "name": "Market Research",
+      "description": "Analyze current bestsellers and cover trends in genre",
+      "required": true
+    },
+    {
+      "id": "cover_strategy",
+      "name": "Cover Strategy",
+      "description": "Generate design approaches based on research",
+      "required": true
+    },
+    {
+      "id": "prompt_generation",
+      "name": "Prompt Generation",
+      "description": "Create detailed Ideogram prompts for each cover concept",
+      "required": true
+    },
+    {
+      "id": "image_generation",
+      "name": "Image Generation",
+      "description": "Call Ideogram API and generate cover images",
+      "required": true
+    },
+    {
+      "id": "output_organization",
+      "name": "Output Organization",
+      "description": "Organize and document generated covers",
+      "required": true
+    }
+  ],
+  "settings": {
+    "covers_per_book": 4,
+    "research_sources": ["amazon", "goodreads", "bookbub"],
+    "image_formats": ["PNG", "JPEG"],
+    "image_dimensions": {
+      "ebook": {"width": 1600, "height": 2560},
+      "print": {"width": 1800, "height": 2700}
+    }
+  }
+}

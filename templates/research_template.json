@@ -1,0 +1,32 @@
+{
+  "genre_analysis": {
+    "genre": "",
+    "bestsellers_analyzed": [],
+    "common_elements": {
+      "color_palettes": [],
+      "typography_styles": [],
+      "imagery_types": [],
+      "layout_patterns": []
+    },
+    "trends": {
+      "current_popular": [],
+      "oversaturated": [],
+      "emerging": []
+    }
+  },
+  "design_opportunities": {
+    "differentiation_areas": [],
+    "market_gaps": [],
+    "recommended_approaches": []
+  },
+  "competitive_analysis": {
+    "similar_books": [],
+    "cover_effectiveness": [],
+    "lessons_learned": []
+  },
+  "metadata": {
+    "research_date": "",
+    "sources_used": [],
+    "confidence_score": 0
+  }
+}

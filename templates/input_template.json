@@ -1,0 +1,26 @@
+{
+  "book_info": {
+    "title": "",
+    "author": "", 
+    "genre": "",
+    "subgenre": "",
+    "description": "",
+    "target_audience": "",
+    "series_info": {
+      "is_series": false,
+      "series_name": "",
+      "book_number": null
+    }
+  },
+  "preferences": {
+    "mood": [],
+    "avoid_colors": [],
+    "prefer_colors": [],
+    "style_notes": ""
+  },
+  "metadata": {
+    "created_date": "",
+    "last_modified": "",
+    "project_slug": ""
+  }
+}

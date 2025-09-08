@@ -1,0 +1,37 @@
+{
+  "cover_concepts": [
+    {
+      "id": 1,
+      "concept_name": "",
+      "design_approach": "",
+      "rationale": "",
+      "ideogram_prompt": "",
+      "style_parameters": {
+        "aspect_ratio": "2:3",
+        "style": "",
+        "mood": "",
+        "color_scheme": ""
+      },
+      "text_overlay": {
+        "title_placement": "",
+        "author_placement": "",
+        "font_style": ""
+      }
+    }
+  ],
+  "prompt_variations": {
+    "negative_prompts": [],
+    "quality_enhancers": [],
+    "style_modifiers": []
+  },
+  "generation_settings": {
+    "model_version": "ideogram-v2",
+    "quality": "premium",
+    "variations_per_concept": 2
+  },
+  "metadata": {
+    "created_date": "",
+    "total_concepts": 0,
+    "estimated_cost": 0
+  }
+}
