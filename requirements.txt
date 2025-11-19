@@ -1,0 +1,11 @@
+# Book Cover Generator - Web App Dependencies
+
+# Web Framework
+Flask==3.0.0
+flask-cors==4.0.0
+
+# HTTP Client (for Ideogram API)
+requests==2.31.0
+
+# Existing CLI dependencies (if any)
+# Add any other dependencies your existing workflow modules need

@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Cover Generator - AI-Assisted Cover Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 15px 30px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .tab-btn.active {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .btn-success {
+            background: #28a745;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+        }
+
+        .project-card h3 {
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .status-not_started {
+            background: #e9ecef;
+            color: #495057;
+        }
+
+        .status-running {
+            background: #fff3cd;
+            color: #856404;
+            animation: pulse 2s infinite;
+        }
+
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .covers-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .cover-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .cover-item:hover {
+            transform: scale(1.05);
+        }
+
+        .cover-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .cover-item a {
+            display: block;
+            background: #667eea;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .progress-section {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .progress-message {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(102, 126, 234, 0.3);
+            border-radius: 50%;
+            border-top-color: #667eea;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .back-btn {
+            margin-bottom: 20px;
+        }
+
+        .project-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .info-item label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .info-item .value {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .empty-state h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Book Cover Generator</h1>
+            <p>AI-Assisted Cover Design Through Market Research & Ideogram API</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('create')">Create New Project</button>
+            <button class="tab-btn" onclick="switchTab('projects')">My Projects</button>
+        </div>
+
+        <!-- Create Project Tab -->
+        <div id="create-tab" class="tab-content active">
+            <div class="card">
+                <h2 style="margin-bottom: 20px; color: #333;">Create New Book Cover Project</h2>
+
+                <div id="create-alert"></div>
+
+                <form id="create-form" onsubmit="createProject(event)">
+                    <div class="form-group">
+                        <label for="title">Book Title *</label>
+                        <input type="text" id="title" name="title" required placeholder="Enter your book title">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="author">Author Name *</label>
+                        <input type="text" id="author" name="author" required placeholder="Enter author name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genre">Genre *</label>
+                        <select id="genre" name="genre" required>
+                            <option value="">Select a genre...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Book Description / Marketing Brief *</label>
+                        <textarea id="description" name="description" required placeholder="Provide a detailed description or marketing brief for your book. Include plot points, themes, target audience, and any specific visual elements you envision..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn" id="create-btn">Create Project & Generate Covers</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Projects Tab -->
+        <div id="projects-tab" class="tab-content">
+            <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 style="color: #333;">My Projects</h2>
+                    <button class="btn btn-secondary" onclick="loadProjects()">Refresh</button>
+                </div>
+
+                <div id="projects-list"></div>
+            </div>
+        </div>
+
+        <!-- Project Detail View (hidden by default) -->
+        <div id="project-detail" style="display: none;">
+            <button class="btn btn-secondary back-btn" onclick="backToProjects()">← Back to Projects</button>
+
+            <div class="card">
+                <h2 id="detail-title" style="margin-bottom: 20px; color: #333;"></h2>
+
+                <div class="project-info" id="project-info"></div>
+
+                <div class="progress-section" id="progress-section">
+                    <div class="progress-message" id="progress-message"></div>
+                    <button class="btn" id="generate-btn" onclick="startGeneration()">Start Generation</button>
+                </div>
+
+                <div id="covers-section" style="display: none;">
+                    <h3 style="margin-top: 30px; margin-bottom: 15px; color: #333;">Generated Covers</h3>
+                    <div class="covers-gallery" id="covers-gallery"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentProject = null;
+        let statusCheckInterval = null;
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            loadGenres();
+            loadProjects();
+        });
+
+        // Tab switching
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            if (tab === 'create') {
+                document.querySelector('.tab-btn:nth-child(1)').classList.add('active');
+                document.getElementById('create-tab').classList.add('active');
+            } else if (tab === 'projects') {
+                document.querySelector('.tab-btn:nth-child(2)').classList.add('active');
+                document.getElementById('projects-tab').classList.add('active');
+                loadProjects();
+            }
+
+            document.getElementById('project-detail').style.display = 'none';
+        }
+
+        // Load genres
+        async function loadGenres() {
+            try {
+                const response = await fetch('/api/genres');
+                const data = await response.json();
+
+                if (data.success) {
+                    const select = document.getElementById('genre');
+                    data.genres.forEach(genre => {
+                        const option = document.createElement('option');
+                        option.value = genre;
+                        option.textContent = genre.charAt(0).toUpperCase() + genre.slice(1);
+                        select.appendChild(option);
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading genres:', error);
+            }
+        }
+
+        // Create project
+        async function createProject(event) {
+            event.preventDefault();
+
+            const btn = document.getElementById('create-btn');
+            const alertDiv = document.getElementById('create-alert');
+            btn.disabled = true;
+            btn.textContent = 'Creating Project...';
+            alertDiv.innerHTML = '';
+
+            const formData = {
+                title: document.getElementById('title').value,
+                author: document.getElementById('author').value,
+                genre: document.getElementById('genre').value,
+                description: document.getElementById('description').value
+            };
+
+            try {
+                const response = await fetch('/api/projects', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alertDiv.innerHTML = '<div class="alert alert-success">Project created successfully! Starting generation...</div>';
+                    document.getElementById('create-form').reset();
+
+                    // Start generation automatically
+                    await startGenerationForProject(data.project_slug);
+
+                    // Switch to project detail view
+                    setTimeout(() => {
+                        viewProject(data.project_slug);
+                    }, 1000);
+                } else {
+                    alertDiv.innerHTML = `<div class="alert alert-error">Error: ${data.error}</div>`;
+                    btn.disabled = false;
+                    btn.textContent = 'Create Project & Generate Covers';
+                }
+            } catch (error) {
+                alertDiv.innerHTML = `<div class="alert alert-error">Error: ${error.message}</div>`;
+                btn.disabled = false;
+                btn.textContent = 'Create Project & Generate Covers';
+            }
+        }
+
+        // Load projects
+        async function loadProjects() {
+            try {
+                const response = await fetch('/api/projects');
+                const data = await response.json();
+
+                const listDiv = document.getElementById('projects-list');
+
+                if (data.success && data.projects.length > 0) {
+                    listDiv.innerHTML = '<div class="projects-grid">' +
+                        data.projects.map(project => `
+                            <div class="project-card" onclick="viewProject('${project.slug}')">
+                                <h3>${project.title}</h3>
+                                <p><strong>Author:</strong> ${project.author}</p>
+                                <p><strong>Genre:</strong> ${project.genre}</p>
+                                <p><strong>Created:</strong> ${new Date(project.created_date).toLocaleDateString()}</p>
+                                <span class="status-badge status-${project.web_status.status}">
+                                    ${project.web_status.status.replace('_', ' ').toUpperCase()}
+                                </span>
+                            </div>
+                        `).join('') +
+                        '</div>';
+                } else {
+                    listDiv.innerHTML = '<div class="empty-state"><h3>No projects yet</h3><p>Create your first book cover project to get started!</p></div>';
+                }
+            } catch (error) {
+                console.error('Error loading projects:', error);
+            }
+        }
+
+        // View project detail
+        async function viewProject(slug) {
+            try {
+                const response = await fetch(`/api/projects/${slug}`);
+                const data = await response.json();
+
+                if (data.success) {
+                    currentProject = data.project;
+
+                    // Hide tabs and show detail view
+                    document.getElementById('create-tab').style.display = 'none';
+                    document.getElementById('projects-tab').style.display = 'none';
+                    document.getElementById('project-detail').style.display = 'block';
+
+                    // Update detail view
+                    document.getElementById('detail-title').textContent = currentProject.data.book_info.title;
+
+                    const infoDiv = document.getElementById('project-info');
+                    infoDiv.innerHTML = `
+                        <div class="info-item">
+                            <label>Author</label>
+                            <div class="value">${currentProject.data.book_info.author}</div>
+                        </div>
+                        <div class="info-item">
+                            <label>Genre</label>
+                            <div class="value">${currentProject.data.book_info.genre}</div>
+                        </div>
+                        <div class="info-item">
+                            <label>Created</label>
+                            <div class="value">${new Date(currentProject.data.metadata.created_date).toLocaleDateString()}</div>
+                        </div>
+                    `;
+
+                    updateProjectStatus();
+
+                    // Start status polling if running
+                    if (currentProject.web_status.status === 'running') {
+                        startStatusPolling();
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading project:', error);
+            }
+        }
+
+        // Update project status display
+        function updateProjectStatus() {
+            const status = currentProject.web_status.status;
+            const message = currentProject.web_status.message;
+            const progressDiv = document.getElementById('progress-section');
+            const messageDiv = document.getElementById('progress-message');
+            const generateBtn = document.getElementById('generate-btn');
+            const coversSection = document.getElementById('covers-section');
+
+            if (status === 'running') {
+                messageDiv.innerHTML = `<span class="loading-spinner"></span>${message}`;
+                generateBtn.style.display = 'none';
+                progressDiv.style.background = '#fff3cd';
+            } else if (status === 'completed') {
+                messageDiv.innerHTML = `✓ ${message}`;
+                generateBtn.style.display = 'none';
+                progressDiv.style.background = '#d4edda';
+
+                // Show covers
+                if (currentProject.covers && currentProject.covers.length > 0) {
+                    coversSection.style.display = 'block';
+                    const galleryDiv = document.getElementById('covers-gallery');
+                    galleryDiv.innerHTML = currentProject.covers.map(cover => `
+                        <div class="cover-item">
+                            <img src="${cover.url}" alt="${cover.filename}">
+                            <a href="${cover.url}" download="${cover.filename}">Download</a>
+                        </div>
+                    `).join('');
+                }
+            } else if (status === 'error') {
+                messageDiv.innerHTML = `✗ ${message}`;
+                generateBtn.textContent = 'Retry Generation';
+                generateBtn.style.display = 'block';
+                progressDiv.style.background = '#f8d7da';
+            } else {
+                messageDiv.textContent = 'Ready to generate covers';
+                generateBtn.textContent = 'Start Generation';
+                generateBtn.style.display = 'block';
+                progressDiv.style.background = '#f8f9fa';
+            }
+        }
+
+        // Start generation for current project
+        async function startGeneration() {
+            if (!currentProject) return;
+            await startGenerationForProject(currentProject.slug);
+        }
+
+        // Start generation for a project
+        async function startGenerationForProject(slug) {
+            try {
+                const response = await fetch(`/api/projects/${slug}/generate`, {
+                    method: 'POST'
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    startStatusPolling();
+                } else {
+                    alert(`Error: ${data.error}`);
+                }
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+        }
+
+        // Poll status while generation is running
+        function startStatusPolling() {
+            if (statusCheckInterval) {
+                clearInterval(statusCheckInterval);
+            }
+
+            statusCheckInterval = setInterval(async () => {
+                if (!currentProject) return;
+
+                try {
+                    const response = await fetch(`/api/projects/${currentProject.slug}/status`);
+                    const data = await response.json();
+
+                    if (data.success) {
+                        currentProject.web_status = data.status;
+                        updateProjectStatus();
+
+                        // Stop polling if completed or error
+                        if (data.status.status === 'completed' || data.status.status === 'error') {
+                            clearInterval(statusCheckInterval);
+                            // Reload project to get covers
+                            viewProject(currentProject.slug);
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error checking status:', error);
+                }
+            }, 2000); // Check every 2 seconds
+        }
+
+        // Back to projects list
+        function backToProjects() {
+            if (statusCheckInterval) {
+                clearInterval(statusCheckInterval);
+            }
+            currentProject = null;
+            document.getElementById('project-detail').style.display = 'none';
+            document.getElementById('create-tab').style.display = 'block';
+            document.getElementById('projects-tab').style.display = 'block';
+            switchTab('projects');
+        }
+    </script>
+</body>
+</html>
